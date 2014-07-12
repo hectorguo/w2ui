@@ -128,7 +128,9 @@
                 $(this.box).find('#tb_'+ this.name +'_item_'+ w2utils.escapeId(it.id)).remove();
                 // remove from array
                 var ind = this.get(it.id, true);
-                if (ind) this.items.splice(ind, 1);
+                // if (ind) this.items.splice(ind, 1);
+                // the first item (ind == 0) can also be removed
+                if (parseInt(ind) === ind) this.items.splice(ind, 1);
             }
             return removed;
         },
